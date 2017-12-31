@@ -4,10 +4,10 @@ import './App.css';
 
 import moment from 'moment'
 
-// const countdownTimer = () => {
-  
-
-// }
+// Formats digits to two digits (e.g. 05)
+const formatTimerDigit = (digit) => {
+  return digit > 9 ? digit : '0' + digit
+}
 
 class App extends Component {
   state = {
@@ -15,18 +15,21 @@ class App extends Component {
   }
 
 
-  timer = () => {
-    const eventTime = moment('01-01-2018 00:00:00', 'DD-MM-YYYY HH:mm:ss').unix()
+  timer = endTime => {
+    const eventTime = moment(endTime, 'DD-MM-YYYY HH:mm:ss').unix()
     const currentTime = moment().unix()
     const diffTime = eventTime - currentTime
     let duration = moment.duration( diffTime * 1000, 'milliseconds' )
     const interval = 1000
 
     if( diffTime > 0 ) {
-
       setInterval( () => {
         duration = moment.duration(duration.asMilliseconds() - interval, 'milliseconds')
-        this.setState({ countdownText: duration.hours() + ":" + duration.minutes() + ":" + duration.seconds() })
+        const hours = formatTimerDigit(duration.hours())
+        const mins = formatTimerDigit(duration.minutes())
+        const secs = formatTimerDigit(duration.seconds())
+        
+        this.setState({ countdownText: hours + ":" + mins + ":" + secs })
       }, interval)
     }
   }
@@ -44,7 +47,8 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.timer()
+    // Call the timer function
+    this.timer('01-01-2018 00:00:00')
   }
 }
 
