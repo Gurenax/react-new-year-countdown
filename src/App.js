@@ -11,7 +11,7 @@ const formatTimerDigit = (digit) => {
 
 class App extends Component {
   state = {
-    countdownText: 'Hello'
+    countdownText: 'Happy New Year!'
   }
 
 
