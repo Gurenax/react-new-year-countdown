@@ -43,7 +43,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        <h1>New Year Countdown to Year 2018</h1>
+        <h1>New Year Countdown to 2018</h1>
         <Countdown text={countdownText}/>
         <a href="https://github.com/Gurenax/react-new-year-countdown">
           Fork me on Github
