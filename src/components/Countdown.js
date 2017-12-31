@@ -1,10 +1,6 @@
 import React from 'react'
+import moment from 'moment'
 
-const Countdown = () => {
-
-  return (
-    <h2>Countdown</h2>
-  )
-}
+const Countdown = ({ text }) => <h2>{text}</h2>
 
 export default Countdown
