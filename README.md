@@ -1,6 +1,6 @@
 # React New Year Countdown
-New Year Countdown to 2018! ;)
-## https://2018-countdown.netlify.com
+New Year Countdown to 2019! ;)
+## https://2019-countdown.netlify.com
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
