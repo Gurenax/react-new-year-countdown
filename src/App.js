@@ -9,9 +9,11 @@ const formatTimerDigit = digit => {
   return digit > 9 ? digit : '0' + digit
 }
 
-// Format the countdownText to include labels and set to blank when value is 0
-const formatCountdownTextLabel = (digit, label) => {
-  return digit > 0 ? formatTimerDigit(digit) + label : ''
+// Format the countdownText to include labels and set to blank when value is 0 (strict)
+// When strict is true, set the value to blank when digit is 0
+const formatCountdownTextLabel = (digit, label, strict) => {
+  if( strict ) return digit > 0 ? formatTimerDigit(digit) + label : ''
+  else return formatTimerDigit(digit) + label
 }
 
 class App extends Component {
@@ -38,11 +40,11 @@ class App extends Component {
         )
 
         // Format the months/days/hours/mins/secs with labels
-        const months = formatCountdownTextLabel(duration.months(), 'mo ')
-        const days = formatCountdownTextLabel(duration.days(), 'd ')
-        const hours = formatCountdownTextLabel(duration.hours(), 'h ')
-        const mins = formatCountdownTextLabel(duration.minutes(), 'm ')
-        const secs = formatCountdownTextLabel(duration.seconds(), 's ')
+        const months = formatCountdownTextLabel(duration.months(), 'mo ', true)
+        const days = formatCountdownTextLabel(duration.days(), 'd ', true)
+        const hours = formatCountdownTextLabel(duration.hours(), 'h ', true)
+        const mins = formatCountdownTextLabel(duration.minutes(), 'm ', false)
+        const secs = formatCountdownTextLabel(duration.seconds(), 's ', false)
 
         this.setState({ countdownText: months + days + hours + mins + secs })
       }, interval)
