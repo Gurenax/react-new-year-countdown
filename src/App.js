@@ -43,7 +43,7 @@ class App extends Component {
         const months = formatCountdownTextLabel(duration.months(), 'mo ', true)
         const days = formatCountdownTextLabel(duration.days(), 'd ', true)
         const hours = formatCountdownTextLabel(duration.hours(), 'h ', true)
-        const mins = formatCountdownTextLabel(duration.minutes(), 'm ', false)
+        const mins = formatCountdownTextLabel(duration.minutes(), 'm ', true)
         const secs = formatCountdownTextLabel(duration.seconds(), 's ', false)
 
         this.setState({ countdownText: months + days + hours + mins + secs })
