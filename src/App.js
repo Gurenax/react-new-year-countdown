@@ -18,7 +18,7 @@ const formatCountdownTextLabel = (digit, label, strict) => {
 
 class App extends Component {
   state = {
-    newYear: '2020',
+    newYear: '2021',
     countdownText: ''
   }
 
