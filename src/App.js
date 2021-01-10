@@ -18,7 +18,7 @@ const formatCountdownTextLabel = (digit, label, strict) => {
 
 class App extends Component {
   state = {
-    newYear: '2021',
+    newYear: '2022',
     countdownText: ''
   }
 
@@ -34,19 +34,23 @@ class App extends Component {
 
     if (diffTime > 0) {
       setInterval(() => {
-        duration = moment.duration(
-          duration.asMilliseconds() - interval,
-          'milliseconds'
-        )
+        if (duration.asMilliseconds() > 0) {
+          duration = moment.duration(
+            duration.asMilliseconds() - interval,
+            'milliseconds'
+          )
 
-        // Format the months/days/hours/mins/secs with labels
-        const months = formatCountdownTextLabel(duration.months(), 'mo ', true)
-        const days = formatCountdownTextLabel(duration.days(), 'd ', true)
-        const hours = formatCountdownTextLabel(duration.hours(), 'h ', true)
-        const mins = formatCountdownTextLabel(duration.minutes(), 'm ', true)
-        const secs = formatCountdownTextLabel(duration.seconds(), 's ', false)
+          // Format the months/days/hours/mins/secs with labels
+          const months = formatCountdownTextLabel(duration.months(), 'mo ', true)
+          const days = formatCountdownTextLabel(duration.days(), 'd ', true)
+          const hours = formatCountdownTextLabel(duration.hours(), 'h ', true)
+          const mins = formatCountdownTextLabel(duration.minutes(), 'm ', true)
+          const secs = formatCountdownTextLabel(duration.seconds(), 's ', false)
 
-        this.setState({ countdownText: months + days + hours + mins + secs })
+          this.setState({ countdownText: months + days + hours + mins + secs })
+        } else {
+          this.setState({ countdownText: 'Happy New Year!' })
+        }
       }, interval)
     } else {
       this.setState({ countdownText: 'Happy New Year!' })
