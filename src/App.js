@@ -32,7 +32,7 @@ const App = () => {
       const interval = 1000
   
       if (diffTime > 0) {
-        setInterval(() => {
+        const id = setInterval(() => {
           if (duration.asMilliseconds() > 0) {
             duration = moment.duration(
               duration.asMilliseconds() - interval,
@@ -50,7 +50,7 @@ const App = () => {
           } else {
             setCountdownText('Happy New Year!');
           }
-        }, interval)
+        }, interval);
       } else {
         setCountdownText('Happy New Year!');
       }
@@ -58,7 +58,7 @@ const App = () => {
 
     // Call the timer function
     timer(newYear)
-  });
+  }, []);
 
   return (
     <div className="App">
