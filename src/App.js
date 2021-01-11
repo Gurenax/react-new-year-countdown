@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import StyledText from "./components/StyledText";
-import Countdown from './components/Countdown'
 import './App.css'
 
 import moment from 'moment'
@@ -19,7 +18,6 @@ const formatCountdownTextLabel = (digit, label, strict) => {
 
 const App = () => {
   const newYear = '2022';
-  // const [countdownText, setCountdownText] = useState('');
   const [isNewYear, setIsNewYear] = useState(false);
   const [monthsText, setMonthsText] = useState('');
   const [daysText, setDaysText] = useState('');
@@ -47,13 +45,6 @@ const App = () => {
             )
   
             // Format the months/days/hours/mins/secs with labels
-            // const months = formatCountdownTextLabel(duration.months(), 'mo ', true)
-            // const days = formatCountdownTextLabel(duration.days(), 'd ', true)
-            // const hours = formatCountdownTextLabel(duration.hours(), 'h ', true)
-            // const mins = formatCountdownTextLabel(duration.minutes(), 'm ', true)
-            // const secs = formatCountdownTextLabel(duration.seconds(), 's ', false)
-  
-            // setCountdownText(months + days + hours + mins + secs);
             setMonthsText(formatCountdownTextLabel(duration.months(), ' months', true));
             setDaysText(formatCountdownTextLabel(duration.days(), ' days', true));
             setHoursText(formatCountdownTextLabel(duration.hours(), ' hours', true));
@@ -77,7 +68,6 @@ const App = () => {
   return (
     <div className="App">
       <h1>New Year Countdown to {newYear}</h1>
-      {/* <Countdown text={countdownText} /> */}
       {
         !isNewYear ? (
           <React.Fragment>
