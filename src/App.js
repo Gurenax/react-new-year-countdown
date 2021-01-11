@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import StyledText from "./components/StyledText";
 import Countdown from './components/Countdown'
 import './App.css'
 
@@ -18,7 +19,13 @@ const formatCountdownTextLabel = (digit, label, strict) => {
 
 const App = () => {
   const newYear = '2022';
-  const [countdownText, setCountdownText] = useState('');
+  // const [countdownText, setCountdownText] = useState('');
+  const [isNewYear, setIsNewYear] = useState(false);
+  const [monthsText, setMonthsText] = useState('');
+  const [daysText, setDaysText] = useState('');
+  const [hoursText, setHoursText] = useState('');
+  const [minutesText, setMinutesText] = useState('');
+  const [secondsText, setSecondsText] = useState('');
 
   useEffect(() => {
     const timer = newYear => {
@@ -32,7 +39,7 @@ const App = () => {
       const interval = 1000
   
       if (diffTime > 0) {
-        const id = setInterval(() => {
+        setInterval(() => {
           if (duration.asMilliseconds() > 0) {
             duration = moment.duration(
               duration.asMilliseconds() - interval,
@@ -40,19 +47,26 @@ const App = () => {
             )
   
             // Format the months/days/hours/mins/secs with labels
-            const months = formatCountdownTextLabel(duration.months(), 'mo ', true)
-            const days = formatCountdownTextLabel(duration.days(), 'd ', true)
-            const hours = formatCountdownTextLabel(duration.hours(), 'h ', true)
-            const mins = formatCountdownTextLabel(duration.minutes(), 'm ', true)
-            const secs = formatCountdownTextLabel(duration.seconds(), 's ', false)
+            // const months = formatCountdownTextLabel(duration.months(), 'mo ', true)
+            // const days = formatCountdownTextLabel(duration.days(), 'd ', true)
+            // const hours = formatCountdownTextLabel(duration.hours(), 'h ', true)
+            // const mins = formatCountdownTextLabel(duration.minutes(), 'm ', true)
+            // const secs = formatCountdownTextLabel(duration.seconds(), 's ', false)
   
-            setCountdownText(months + days + hours + mins + secs);
+            // setCountdownText(months + days + hours + mins + secs);
+            setMonthsText(formatCountdownTextLabel(duration.months(), ' months', true));
+            setDaysText(formatCountdownTextLabel(duration.days(), ' days', true));
+            setHoursText(formatCountdownTextLabel(duration.hours(), ' hours', true));
+            setMinutesText(formatCountdownTextLabel(duration.minutes(), ' months', true));
+            setSecondsText(formatCountdownTextLabel(duration.seconds(), ' seconds', false));
           } else {
-            setCountdownText('Happy New Year!');
+            // setCountdownText('Happy New Year!');
+            setIsNewYear(true);
           }
         }, interval);
       } else {
-        setCountdownText('Happy New Year!');
+        // setCountdownText('Happy New Year!');
+        setIsNewYear(true);
       }
     }
 
@@ -63,8 +77,45 @@ const App = () => {
   return (
     <div className="App">
       <h1>New Year Countdown to {newYear}</h1>
-      <Countdown text={countdownText} />
-      <a href="https://github.com/Gurenax/react-new-year-countdown">
+      {/* <Countdown text={countdownText} /> */}
+      {
+        !isNewYear ? (
+          <React.Fragment>
+            <StyledText backgroundColour="black" textColour="#FFFF33">
+              {monthsText}
+            </StyledText>
+            <StyledText backgroundColour="black" textColour="#00FF33">
+              {daysText}
+            </StyledText>
+            <StyledText backgroundColour="black" textColour="#099FFF">
+              {hoursText}
+            </StyledText>
+            <StyledText backgroundColour="black" textColour="#FF00CC">
+              {minutesText}
+            </StyledText>
+            <StyledText backgroundColour="black" textColour="#CC00FF">
+              {secondsText}
+            </StyledText>
+          </React.Fragment>
+        ) : (
+          <React.Fragment>
+            <StyledText backgroundColour="black" textColour="#FFFF33">
+              Happy
+            </StyledText>
+            <StyledText backgroundColour="black" textColour="#FF00CC">
+              New
+            </StyledText>
+            <StyledText backgroundColour="black" textColour="#099FFF">
+              Year
+            </StyledText>
+            <StyledText backgroundColour="black" textColour="#CC00FF">
+              {newYear}
+            </StyledText>
+          </React.Fragment>
+        )
+      }
+      
+      <a href="https://github.com/Gurenax/react-new-year-countdown" style={{display:'block', marginTop: '20px'}}>
         Fork me on Github
       </a>
     </div>
