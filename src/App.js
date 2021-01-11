@@ -57,7 +57,7 @@ const App = () => {
             setMonthsText(formatCountdownTextLabel(duration.months(), ' months', true));
             setDaysText(formatCountdownTextLabel(duration.days(), ' days', true));
             setHoursText(formatCountdownTextLabel(duration.hours(), ' hours', true));
-            setMinutesText(formatCountdownTextLabel(duration.minutes(), ' months', true));
+            setMinutesText(formatCountdownTextLabel(duration.minutes(), ' minutes', true));
             setSecondsText(formatCountdownTextLabel(duration.seconds(), ' seconds', false));
           } else {
             // setCountdownText('Happy New Year!');
