@@ -6,9 +6,9 @@ export const Container = styled.h2`
   margin: 0;
   ${({ backgroundColour }) => `${getColour(backgroundColour, 'background')}`}
   ${({ textColour }) => `${getColour(textColour, 'text')}`}
-  font-size: 8vw;
+  font-size: 7vw;
   @media (max-width: 600px) {
-    font-size: 15vw;
+    font-size: 14vw;
   }
 `;
 
