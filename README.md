@@ -1,4 +1,3 @@
 # React New Year Countdown
-New Year Countdown to 2019! ;)
+New Year Countdown to 2022! ;)
 ## https://2022countdown.netlify.app
-
