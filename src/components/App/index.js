@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import moment from 'moment'
 import { GlobalStyle, Container } from "./styled";
 import StyledText from "../StyledText";
-// import './App.css'
 
 
 // Formats digits to two digits (e.g. 05)
@@ -52,12 +51,10 @@ const App = () => {
             setMinutesText(formatCountdownTextLabel(duration.minutes(), ' minutes', true));
             setSecondsText(formatCountdownTextLabel(duration.seconds(), ' seconds', false));
           } else {
-            // setCountdownText('Happy New Year!');
             setIsNewYear(true);
           }
         }, interval);
       } else {
-        // setCountdownText('Happy New Year!');
         setIsNewYear(true);
       }
     }
