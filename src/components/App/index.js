@@ -1,85 +1,19 @@
-import React, { useState, useEffect } from 'react'
-import moment, { min } from 'moment'
+import React from 'react'
 import { GlobalStyle, Container } from "./styled";
-import StyledText from "../StyledText";
 import Countdown from '../Countdown'
 
-// Formats digits to two digits (e.g. 05)
-const formatTimerDigit = digit => {
-  return digit > 9 ? digit : '0' + digit
-}
-
-// Format the countdownText to include labels and set to blank when value is 0 (strict)
-// When strict is true, set the value to blank when digit is 0
-const formatCountdownTextLabel = (digit, label, strict) => {
-  if( strict ) return digit > 0 ? formatTimerDigit(digit) + label : ''
-  else return formatTimerDigit(digit) + label
-}
-
 const App = () => {
-  const newYear = '2022';
-  const [isNewYear, setIsNewYear] = useState(false);
-  const [monthsText, setMonthsText] = useState('');
-  const [daysText, setDaysText] = useState('');
-  const [hoursText, setHoursText] = useState('');
-  const [minutesText, setMinutesText] = useState('');
-  const [secondsText, setSecondsText] = useState('');
-
-  useEffect(() => {
-    const timer = newYear => {
-      const eventTime = moment(
-        `01-01-${newYear} 00:00:00`,
-        // `18-12-2021 21:40:00`,
-        'DD-MM-YYYY HH:mm:ss'
-      ).unix()
-      const currentTime = moment().unix()
-      const diffTime = eventTime - currentTime
-      let duration = moment.duration(diffTime * 1000, 'milliseconds')
-      const interval = 1000
-  
-      if (diffTime > 0) {
-        setInterval(() => {
-          if (duration.asMilliseconds() > 0) {
-            duration = moment.duration(
-              duration.asMilliseconds() - interval,
-              'milliseconds'
-            )
-  
-            // Format the months/days/hours/mins/secs with labels
-            setMonthsText(formatCountdownTextLabel(duration.months(), ' months', true));
-            setDaysText(formatCountdownTextLabel(duration.days(), ' days', true));
-            setHoursText(formatCountdownTextLabel(duration.hours(), ' hours', true));
-            setMinutesText(formatCountdownTextLabel(duration.minutes(), ' minutes', true));
-            setSecondsText(formatCountdownTextLabel(duration.seconds(), ' seconds', false));
-          } else {
-            setIsNewYear(true);
-          }
-        }, interval);
-      } else {
-        setIsNewYear(true);
-      }
-    }
-
-    // Call the timer function
-    timer(newYear)
-  }, []);
-
   return (
     <React.Fragment>
       <GlobalStyle />
       <Container>
         <Countdown
-          title={`New Year Countdown to ${newYear}`}
-          months={monthsText}
-          days={daysText}
-          hours={hoursText}
-          minutes={minutesText}
-          seconds={secondsText}
-          isDateTimeMet={isNewYear}
+          title={'New Year Countdown to 2022'}
+          eventDateTime='01-01-2022 00:00:00'
           messageLine1="Happy"
           messageLine2="New"
           messageLine3="Year"
-          messageLine4={newYear}
+          messageLine4="2022!"
         />
         
         <a href="https://github.com/Gurenax/react-new-year-countdown" style={{display:'block', marginTop: '20px'}}>
