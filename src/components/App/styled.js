@@ -24,3 +24,24 @@ export const Container = styled.div`
     }
   }
 `;
+
+export const InnerContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+
+  div {
+    width: 50%;
+  }
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    div {
+      width: 100%;
+      margin-bottom: 30px;
+    }
+  }
+`;

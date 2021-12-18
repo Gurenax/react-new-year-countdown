@@ -6,3 +6,8 @@ export const Container = styled.div`
   padding: 0;
   text-align: center;
 `;
+
+export const Heading = styled.h1`
+  font-size: 4vw;
+  text-align: center;
+`;

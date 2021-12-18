@@ -1,5 +1,5 @@
 import React from 'react'
-import { GlobalStyle, Container } from "./styled";
+import { GlobalStyle, Container, InnerContainer } from "./styled";
 import Countdown from '../Countdown'
 
 const App = () => {
@@ -7,14 +7,24 @@ const App = () => {
     <React.Fragment>
       <GlobalStyle />
       <Container>
-        <Countdown
-          title={'New Year Countdown to 2022'}
-          eventDateTime='01-01-2022 00:00:00'
-          messageLine1="Happy"
-          messageLine2="New"
-          messageLine3="Year"
-          messageLine4="2022!"
-        />
+        <InnerContainer>
+          <Countdown
+            title='Christmas Countdown 2021'
+            eventDateTime='25-12-2021 00:00:00'
+            messageLine1="Merry"
+            messageLine2="Christmas"
+            messageLine4="2021!"
+          />
+
+          <Countdown
+            title='New Year Countdown 2022'
+            eventDateTime='01-01-2022 00:00:00'
+            messageLine1="Happy"
+            messageLine2="New"
+            messageLine3="Year"
+            messageLine4="2022!"
+          />
+        </InnerContainer>
         
         <a href="https://github.com/Gurenax/react-new-year-countdown" style={{display:'block', marginTop: '20px'}}>
           Fork me on Github
