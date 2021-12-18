@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useReducer } from "react";
+import React, { useEffect, useReducer } from "react";
 import moment from 'moment'
-import { Container } from "./styled";
 import StyledText from "../StyledText";
-import { formatCountdownTextLabel } from './utils';
 import { initialState, reducer } from './reducer';
 import { SET_IS_DATETIME_MET, SET_DATETIME } from './actions';
+import { Container, Heading } from "./styled";
+import { formatCountdownTextLabel } from './utils';
 
 const Countdown = ({
   title,
@@ -61,7 +61,7 @@ const Countdown = ({
 
   return (
     <Container>
-      <h1>{title}</h1>
+      <Heading>{title}</Heading>
       {!state.isDateTimeMet ? (
         <React.Fragment>
           <StyledText backgroundColour="black" textColour="#FFFF33">
