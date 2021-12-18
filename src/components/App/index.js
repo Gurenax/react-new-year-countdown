@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import moment from 'moment'
+import moment, { min } from 'moment'
 import { GlobalStyle, Container } from "./styled";
 import StyledText from "../StyledText";
-
+import Countdown from '../Countdown'
 
 // Formats digits to two digits (e.g. 05)
 const formatTimerDigit = digit => {
@@ -29,6 +29,7 @@ const App = () => {
     const timer = newYear => {
       const eventTime = moment(
         `01-01-${newYear} 00:00:00`,
+        // `18-12-2021 21:40:00`,
         'DD-MM-YYYY HH:mm:ss'
       ).unix()
       const currentTime = moment().unix()
@@ -67,7 +68,20 @@ const App = () => {
     <React.Fragment>
       <GlobalStyle />
       <Container>
-        <h1>New Year Countdown to {newYear}</h1>
+        <Countdown
+          title={`New Year Countdown to ${newYear}`}
+          months={monthsText}
+          days={daysText}
+          hours={hoursText}
+          minutes={minutesText}
+          seconds={secondsText}
+          isDateTimeMet={isNewYear}
+          messageLine1="Happy"
+          messageLine2="New"
+          messageLine3="Year"
+          messageLine4={newYear}
+        />
+        {/* <h1>New Year Countdown to {newYear}</h1>
         {
           !isNewYear ? (
             <React.Fragment>
@@ -103,7 +117,7 @@ const App = () => {
               </StyledText>
             </React.Fragment>
           )
-        }
+        } */}
         
         <a href="https://github.com/Gurenax/react-new-year-countdown" style={{display:'block', marginTop: '20px'}}>
           Fork me on Github
