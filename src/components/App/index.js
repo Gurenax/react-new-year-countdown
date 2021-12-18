@@ -81,43 +81,6 @@ const App = () => {
           messageLine3="Year"
           messageLine4={newYear}
         />
-        {/* <h1>New Year Countdown to {newYear}</h1>
-        {
-          !isNewYear ? (
-            <React.Fragment>
-              <StyledText backgroundColour="black" textColour="#FFFF33">
-                {monthsText}
-              </StyledText>
-              <StyledText backgroundColour="black" textColour="#00FF33">
-                {daysText}
-              </StyledText>
-              <StyledText backgroundColour="black" textColour="#099FFF">
-                {hoursText}
-              </StyledText>
-              <StyledText backgroundColour="black" textColour="#FF00CC">
-                {minutesText}
-              </StyledText>
-              <StyledText backgroundColour="black" textColour="#CC00FF">
-                {secondsText}
-              </StyledText>
-            </React.Fragment>
-          ) : (
-            <React.Fragment>
-              <StyledText backgroundColour="black" textColour="#FFFF33">
-                Happy
-              </StyledText>
-              <StyledText backgroundColour="black" textColour="#FF00CC">
-                New
-              </StyledText>
-              <StyledText backgroundColour="black" textColour="#099FFF">
-                Year
-              </StyledText>
-              <StyledText backgroundColour="black" textColour="#CC00FF">
-                {newYear}
-              </StyledText>
-            </React.Fragment>
-          )
-        } */}
         
         <a href="https://github.com/Gurenax/react-new-year-countdown" style={{display:'block', marginTop: '20px'}}>
           Fork me on Github
