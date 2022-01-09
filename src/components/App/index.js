@@ -9,20 +9,20 @@ const App = () => {
       <Container>
         <InnerContainer>
           <Countdown
-            title='Christmas Countdown 2021'
-            eventDateTime='25-12-2021 00:00:00'
+            title='Christmas Countdown 2023'
+            eventDateTime='25-12-2022 00:00:00'
             messageLine1="Merry"
             messageLine2="Christmas"
-            messageLine4="2021!"
+            messageLine4="2022!"
           />
 
           <Countdown
-            title='New Year Countdown 2022'
-            eventDateTime='01-01-2022 00:00:00'
+            title='New Year Countdown 2023'
+            eventDateTime='01-01-2023 00:00:00'
             messageLine1="Happy"
             messageLine2="New"
             messageLine3="Year"
-            messageLine4="2022!"
+            messageLine4="2023!"
           />
         </InnerContainer>
         
