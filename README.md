@@ -1,3 +1,3 @@
 # React New Year Countdown
-New Year Countdown to 2022! ;)
-## https://2022countdown.netlify.app
+Christmas and New Year Countdown App! ;)
+## https://holiday-countdowns.netlify.app
