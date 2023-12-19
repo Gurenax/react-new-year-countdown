@@ -3,26 +3,28 @@ import { GlobalStyle, Container, InnerContainer } from "./styled";
 import Countdown from '../Countdown'
 
 const App = () => {
+  const christmasYear = 2023;
+  const newYear = 2024;
   return (
     <React.Fragment>
       <GlobalStyle />
       <Container>
         <InnerContainer>
           <Countdown
-            title='Christmas Countdown 2023'
-            eventDateTime='25-12-2022 00:00:00'
+            title={`Christmas Countdown ${christmasYear}`}
+            eventDateTime={`25-12-${christmasYear} 00:00:00`}
             messageLine1="Merry"
             messageLine2="Christmas"
-            messageLine4="2022!"
+            messageLine4={`${christmasYear}!`}
           />
 
           <Countdown
-            title='New Year Countdown 2023'
-            eventDateTime='01-01-2023 00:00:00'
+            title={`New Year Countdown ${newYear}`}
+            eventDateTime={`01-01-${newYear} 00:00:00`}
             messageLine1="Happy"
             messageLine2="New"
             messageLine3="Year"
-            messageLine4="2023!"
+            messageLine4={`${newYear}!`}
           />
         </InnerContainer>
         
