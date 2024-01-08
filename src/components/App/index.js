@@ -3,8 +3,8 @@ import { GlobalStyle, Container, InnerContainer } from "./styled";
 import Countdown from '../Countdown'
 
 const App = () => {
-  const christmasYear = 2023;
-  const newYear = 2024;
+  const christmasYear = 2024;
+  const newYear = 2025;
   return (
     <React.Fragment>
       <GlobalStyle />
